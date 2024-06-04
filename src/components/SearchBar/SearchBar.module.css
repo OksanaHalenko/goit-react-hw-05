@@ -1,0 +1,48 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 8px 16px;
+  width: 100%;
+  background-color: goldenrod;
+  z-index: 999;
+}
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.inputWrapper {
+  position: relative;
+  width: 480px;
+}
+.icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.input {
+  width: 100%;
+  padding: 10px 10px 10px 30px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 8px;
+}
+.input:hover,
+.input:focus {
+  outline: none;
+  box-shadow: inset 0 0 8px gold;
+}
+.btn {
+  color: goldenrod;
+}
+.btn:focus,
+.btn:hover {
+  border-color: goldenrod;
+  box-shadow: inset 0 0 8px gold;
+}
+.toaster {
+  margin-top: 48px;
+}

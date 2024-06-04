@@ -1,0 +1,10 @@
+.btn {
+  border-radius: 16px;
+  background-color: rgb(227, 212, 173);
+  color: rgb(167, 123, 14);
+}
+.btn:focus,
+.btn:hover {
+  border-color: goldenrod;
+  box-shadow: inset 0 0 8px gold;
+}
