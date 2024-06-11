@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: rgb(250, 237, 204);
+}
+.goBackBtn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  padding: 8px;
+  background-color: goldenrod;
+  border-radius: 8px;
+  color: antiquewhite;
+  font-size: 24px;
+  font-weight: 700;
+}
+.link {
+  color: goldenrod;
+}
+.isActive {
+  color: brown;
+}
+.wrapper {
+  margin-top: 24px;
+}
+.poster {
+}
+.box {
+}
+.title {
+}
+.description {
+}
+.span {
+}
+.details {
+}
+.list {
+}
+.item {
+}

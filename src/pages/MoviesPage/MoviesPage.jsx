@@ -25,7 +25,7 @@ function MoviesPage() {
         setLoading(true);
         setError(false);
         const data = await fetchMovieWithTopic(topic, page);
-        const newMovies = data;
+        const newMovies = data.results;
         setMovies((prevMovies) => {
           return [...prevMovies, ...newMovies];
         });
@@ -62,7 +62,6 @@ function MoviesPage() {
       ) : (
         <MovieList movies={movies} />
       )}
-
       <Loader loading={loading} />
 
       {!loading && movies.length > 0 && page !== totalPage && (

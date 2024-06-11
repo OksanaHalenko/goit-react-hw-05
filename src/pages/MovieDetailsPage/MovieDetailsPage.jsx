@@ -46,13 +46,15 @@ function MovieDetailsPage() {
   };
 
   return (
-    <div className={css.main}>
-      <Link to={backLink.current}>Go back</Link>
+    <div className={css.container}>
+      <Link to={backLink.current} className={css.goBackBtn}>
+        Go back
+      </Link>
       {loading && <Loader />}
       {error && <NotFoundPage />}
 
       {movie && (
-        <div className={css.box}>
+        <div className={css.wrapper}>
           <img
             className={css.poster}
             src={
@@ -63,13 +65,13 @@ function MovieDetailsPage() {
             width={250}
             alt="poster"
           />
-          <div className={css.boxAbout}>
+          <div className={css.box}>
             <h2 className={css.title}>{movie.title}</h2>
             <p className={css.description}>{movie.overview}</p>
-            <p className={css.span}>
+            <p className={css.details}>
               Popularity: <span>{Math.round(movie.popularity)}</span>
             </p>
-            <p className={css.span}>
+            <p className={css.details}>
               Genres:{" "}
               <span>{movie.genres.map((genre) => genre.name).join(", ")}</span>
             </p>
@@ -78,12 +80,12 @@ function MovieDetailsPage() {
       )}
       <h2>Additional Information</h2>
       <ul className={css.list}>
-        <li className={css.linka}>
+        <li className={css.item}>
           <NavLink to="cast" className={makeLinksClass}>
             Cast
           </NavLink>
         </li>
-        <li className={css.linka}>
+        <li className={css.item}>
           <NavLink to="reviews" className={makeLinksClass}>
             Reviews
           </NavLink>

@@ -26,7 +26,7 @@ export const fetchMovieWithTopic = async (topic, page) => {
     },
   };
   const { data } = await axios.get(url, optionsTopicSearch);
-  return data.results;
+  return data;
 };
 
 export const getMovieDetails = async (movieId) => {

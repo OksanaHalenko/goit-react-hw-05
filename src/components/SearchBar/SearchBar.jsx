@@ -1,6 +1,7 @@
 import css from "./SearchBar.module.css";
 import { IoSearchOutline } from "react-icons/io5";
 import toast, { Toaster } from "react-hot-toast";
+import Navigation from "../Navigation/Navigation";
 
 function SearchBar({ onSubmit }) {
   const handleSubmit = (event) => {
@@ -17,6 +18,7 @@ function SearchBar({ onSubmit }) {
   };
   return (
     <header className={css.header}>
+      <Navigation />
       <form className={css.form} onSubmit={handleSubmit}>
         <div className={css.inputWrapper}>
           <IoSearchOutline className={css.icon} />
