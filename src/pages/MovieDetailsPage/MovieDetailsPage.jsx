@@ -23,7 +23,7 @@ function MovieDetailsPage() {
   const [error, setError] = useState(false);
 
   const location = useLocation();
-  const backLink = useRef(location.state ?? "/");
+  const backLink = useRef(location.state ?? "/movies");
 
   useEffect(() => {
     if (!movieId) return;
