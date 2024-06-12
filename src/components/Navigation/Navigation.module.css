@@ -16,4 +16,6 @@
   color: rgb(135, 72, 72);
 }
 .active {
+  color: brown;
+  border-bottom: 2px solid brown;
 }
