@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieCast } from "../../fetchApi";
 import Loader from "../Loader/Loader";
@@ -10,6 +10,7 @@ const defaultImg =
 
 function MovieCast() {
   const { movieId } = useParams();
+  const scrollRef = useRef();
 
   const [cast, setCast] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -30,8 +31,17 @@ function MovieCast() {
     };
     getCast();
   }, [movieId]);
+
+  useEffect(() => {
+    if (cast.length > 0) {
+      window.scrollTo({
+        top: 560,
+        behavior: "smooth",
+      });
+    }
+  }, [cast]);
   return (
-    <div className={css.wrapper}>
+    <div className={css.wrapper} ref={scrollRef}>
       {loading && <Loader />}
       {error && (
         <ErrorMessage

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieReviews } from "../../fetchApi";
 import Loader from "../Loader/Loader";
@@ -7,6 +7,7 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 function MovieReviews() {
   const { movieId } = useParams();
+  const scrollRef = useRef();
 
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -27,8 +28,16 @@ function MovieReviews() {
     };
     getReviews();
   }, [movieId]);
+  useEffect(() => {
+    if (reviews.length > 0) {
+      window.scrollTo({
+        top: 560,
+        behavior: "smooth",
+      });
+    }
+  }, [reviews]);
   return (
-    <div>
+    <div ref={scrollRef}>
       {loading && <Loader />}
       {error && (
         <ErrorMessage
