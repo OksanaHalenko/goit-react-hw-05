@@ -5,6 +5,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import Loader from "../../components/Loader/Loader";
 import LoadMoreBtn from "../../components/LoadMoreBtn/LoadMoreBtn";
+import { useSearchParams } from "react-router-dom";
 
 const MovieList = lazy(() => import("../../components/MovieList/MovieList"));
 
@@ -12,18 +13,20 @@ function MoviesPage() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [topic, setTopic] = useState("");
+
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState();
+  const [params, setParams] = useSearchParams();
 
   useEffect(() => {
-    if (topic === "") {
+    if (params.get("query" ?? "") === "") {
       return;
     }
     const handleSearch = async () => {
       try {
         setLoading(true);
         setError(false);
+        const topic = params.get("query" ?? "");
         const data = await fetchMovieWithTopic(topic, page);
         const newMovies = data.results;
         setMovies((prevMovies) => {
@@ -37,10 +40,11 @@ function MoviesPage() {
       }
     };
     handleSearch();
-  }, [page, topic]);
+  }, [page, params]);
 
   const handleSubmit = async (dataSearch) => {
-    setTopic(dataSearch);
+    params.set("query", dataSearch ?? "");
+    setParams(params);
     setMovies([]);
     setPage(1);
   };
