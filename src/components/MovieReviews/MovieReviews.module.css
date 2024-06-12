@@ -1,0 +1,15 @@
+.wrapper {
+  margin-top: 24px;
+  border-top: 2px solid goldenrod;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: bold;
+}

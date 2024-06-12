@@ -4,7 +4,6 @@
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: rgb(250, 237, 204);
 }
 .goBackBtn {
   position: fixed;
@@ -24,21 +23,47 @@
   color: brown;
 }
 .wrapper {
+  display: flex;
+  gap: 48px;
   margin-top: 24px;
 }
 .poster {
+  width: 320px;
+  height: 480px;
 }
 .box {
+  padding: 16px;
+  border: 2px solid goldenrod;
+  border-radius: 8px;
 }
 .title {
+  font-size: 36px;
+  margin: 0 8px 56px;
+  color: goldenrod;
 }
 .description {
-}
-.span {
+  max-width: 720px;
+  font-size: 18px;
+  font-style: italic;
+  margin-bottom: 56px;
 }
 .details {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+}
+.addInformation {
+  font-size: 24px;
+  margin-top: 48px;
+  border-top: 2px solid goldenrod;
 }
 .list {
+  margin: 0;
 }
 .item {
+  font-size: 24px;
+}
+.item:hover,
+.item:focus {
+  color: brown;
 }

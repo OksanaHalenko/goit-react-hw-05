@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieCast } from "../../fetchApi";
 import Loader from "../Loader/Loader";
-import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 import css from "./MovieCast.module.css";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 const defaultImg =
   "https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg";
@@ -31,14 +31,17 @@ function MovieCast() {
     getCast();
   }, [movieId]);
   return (
-    <div className={css.mainDiv}>
+    <div className={css.wrapper}>
       {loading && <Loader />}
-      {error && <NotFoundPage />}
+      {error && (
+        <ErrorMessage
+          text={"Whoops, something went wrong! Please try reloading this page!"}
+        />
+      )}
       <ul className={css.list}>
         {cast.map((actor) => (
           <li key={actor.id} className={css.item}>
             <img
-              className={css.img}
               src={
                 actor.profile_path
                   ? `https://image.tmdb.org/t/p/w500${actor.profile_path}`

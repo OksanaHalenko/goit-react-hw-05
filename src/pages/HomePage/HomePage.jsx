@@ -4,7 +4,7 @@ import css from "./HomePage.module.css";
 import MovieList from "../../components/MovieList/MovieList";
 import Navigation from "../../components/Navigation/Navigation";
 import Loader from "../../components/Loader/Loader";
-import NotFoundPage from "../NotFoundPage/NotFoundPage";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 const HomePage = () => {
   const [movies, setMovies] = useState([{ id: 1, title: "halo" }]);
@@ -29,10 +29,15 @@ const HomePage = () => {
   return (
     <div className={css.container}>
       <Navigation />
+      <h1>The trends in the week</h1>
       {loading && <Loader />}
-      {error && <NotFoundPage />}
-      <h1>Trending this week</h1>
-      <MovieList movies={movies} />
+      {error ? (
+        <ErrorMessage
+          text={"Whoops, something went wrong! Please try reloading this page!"}
+        />
+      ) : (
+        <MovieList movies={movies} />
+      )}
     </div>
   );
 };

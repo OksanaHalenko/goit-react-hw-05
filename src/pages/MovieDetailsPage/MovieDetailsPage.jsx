@@ -8,9 +8,9 @@ import {
 } from "react-router-dom";
 import { getMovieDetails } from "../../fetchApi";
 import Loader from "../../components/Loader/Loader";
-import NotFoundPage from "../NotFoundPage/NotFoundPage";
 import css from "./MovieDetailsPage.module.css";
 import clsx from "clsx";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 const defaultImg =
   "https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg";
@@ -51,7 +51,11 @@ function MovieDetailsPage() {
         Go back
       </Link>
       {loading && <Loader />}
-      {error && <NotFoundPage />}
+      {error && (
+        <ErrorMessage
+          text={"Whoops, something went wrong! Please try reloading this page!"}
+        />
+      )}
 
       {movie && (
         <div className={css.wrapper}>
@@ -78,7 +82,7 @@ function MovieDetailsPage() {
           </div>
         </div>
       )}
-      <h2>Additional Information</h2>
+      <h2 className={css.addInformation}>Additional Information</h2>
       <ul className={css.list}>
         <li className={css.item}>
           <NavLink to="cast" className={makeLinksClass}>
