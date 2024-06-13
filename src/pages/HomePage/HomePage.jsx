@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchApi } from "../../fetchApi";
 import css from "./HomePage.module.css";
 import MovieList from "../../components/MovieList/MovieList";
-import Navigation from "../../components/Navigation/Navigation";
+
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
@@ -28,7 +28,6 @@ const HomePage = () => {
 
   return (
     <div className={css.container}>
-      <Navigation />
       <h1>The trends in the week</h1>
       {loading && <Loader />}
       {error ? (

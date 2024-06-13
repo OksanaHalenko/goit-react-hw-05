@@ -17,17 +17,17 @@ function MoviesPage() {
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState();
   const [params, setParams] = useSearchParams();
-
+  const query = params.get("query" ?? "");
   useEffect(() => {
-    if (params.get("query" ?? "") === "") {
+    if (query === "") {
       return;
     }
     const handleSearch = async () => {
       try {
         setLoading(true);
         setError(false);
-        const topic = params.get("query" ?? "");
-        const data = await fetchMovieWithTopic(topic, page);
+
+        const data = await fetchMovieWithTopic(query, page);
         const newMovies = data.results;
         setMovies((prevMovies) => {
           return [...prevMovies, ...newMovies];
@@ -40,11 +40,10 @@ function MoviesPage() {
       }
     };
     handleSearch();
-  }, [page, params]);
+  }, [page, query]);
 
-  const handleSubmit = async (dataSearch) => {
-    params.set("query", dataSearch ?? "");
-    setParams(params);
+  const handleSubmit = (dataSearch) => {
+    setParams({ query: dataSearch });
     setMovies([]);
     setPage(1);
   };

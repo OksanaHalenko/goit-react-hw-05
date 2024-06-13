@@ -30,7 +30,7 @@ ul {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+
   min-width: 100%;
   min-height: 100vh;
   background-color: rgb(250, 237, 204);

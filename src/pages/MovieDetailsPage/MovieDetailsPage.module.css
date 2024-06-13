@@ -1,13 +1,13 @@
 .container {
+  margin-top: 72px;
   display: flex;
   flex-direction: column;
-  margin: 0;
   padding: 0;
   width: 100%;
 }
 .goBackBtn {
   position: fixed;
-  top: 12px;
+  top: 72px;
   left: 12px;
   padding: 8px;
   background-color: goldenrod;
